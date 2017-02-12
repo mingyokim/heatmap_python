@@ -12,10 +12,7 @@ latList = []
 longList = []
 priceList = []
 
-LAT_INDEX = 6
-LONG_INDEX = 7
-PRICE_INDEX = 9
-MAX_PRICE = 1000
+MAX_PRICE = 600
 with open("listings.csv", "r") as f:
 	#next(f)
 	reader = csv.DictReader(f)
@@ -67,8 +64,8 @@ for rest in restList:
 
 gridsize = 100
 #PLT.subplot(111)
-PLT.hexbin(latList, longList, C=priceList, gridsize=gridsize, cmap=CM.jet, bins=None)
-PLT.axis([min(latList), max(latList), min(longList), max(longList)])
+PLT.hexbin(longList, latList, C=priceList, gridsize=gridsize, cmap=CM.jet, bins=None)
+PLT.axis([min(longList), max(longList), min(latList), max(latList)])
 
 cb = PLT.colorbar()
 cb.set_label('price')
